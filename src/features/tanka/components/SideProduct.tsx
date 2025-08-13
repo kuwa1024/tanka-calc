@@ -1,50 +1,24 @@
-import { Grid, useMediaQuery } from '@mui/material';
-import { FormProvider } from 'react-hook-form';
+import { useMediaQuery } from '@mui/material';
+import { useState } from 'react';
 import { Button } from '../../../components/Button';
-import { TextInput } from '../../../components/TextInput';
-import { useProduct } from '../hooks/useProduct';
+import { ProductDialog } from './ProductDialog';
+import { ProductForm } from './ProductForm';
 
 export const SideProduct = () => {
   const isMobile = useMediaQuery('(max-width:900px)');
-  const { saveMethods, onSaveSubmit } = useProduct();
+  const [open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <>
       {isMobile ? (
-        '商品登録（モーダル）'
+        <>
+          <Button label="商品登録" fullWidth onClick={() => setOpen(true)} />
+          <ProductDialog open={open} handleClose={handleClose} />
+        </>
       ) : (
-        <FormProvider {...saveMethods}>
-          <form onSubmit={saveMethods.handleSubmit(onSaveSubmit)}>
-            <Grid container spacing={1}>
-              <Grid size={12}>
-                <TextInput name="category" label="カテゴリー" fullWidth disabled />
-              </Grid>
-              <Grid size={12}>
-                <TextInput name="name" label="商品名" fullWidth />
-              </Grid>
-              <Grid size={12}>
-                <TextInput name="price" label="金額" type="number" adornment="円" fullWidth />
-              </Grid>
-              <Grid size={12}>
-                <TextInput name="quantity" label="数量" type="number" adornment="個" fullWidth />
-              </Grid>
-              <Grid size={12}>
-                <TextInput name="discount" label="割引" type="number" adornment="円" fullWidth />
-              </Grid>
-              <Grid size={12}>
-                <TextInput
-                  name="discountRate"
-                  label="割引率"
-                  type="number"
-                  adornment="％"
-                  fullWidth
-                />
-              </Grid>
-              <Grid size={12}>
-                <Button type="submit" label="商品登録" fullWidth />
-              </Grid>
-            </Grid>
-          </form>
-        </FormProvider>
+        <ProductForm />
       )}
     </>
   );
