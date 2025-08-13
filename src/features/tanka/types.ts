@@ -7,6 +7,7 @@ export interface product {
   discount?: number;
   discountRate?: number;
   unitPrice: number;
+  date: string;
 }
 
 export interface category {

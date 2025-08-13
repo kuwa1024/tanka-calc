@@ -49,6 +49,10 @@ export const useProduct = () => {
   });
 
   const onSaveSubmit = (data: formSaveValues) => {
+    const date = new Date();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    const d = String(date.getDate()).padStart(2, '0');
+    const md = `${m}/${d}`;
     const product = {
       id: v4(),
       category: selectCategory,
@@ -57,7 +61,8 @@ export const useProduct = () => {
       quantity: data.quantity,
       discount: data.discount,
       discountRate: data.discountRate,
-      unitPrice: ((data.price - data.discount) * data.discountRate) / 100 / data.quantity,
+      unitPrice: ((data.price - data.discount) * (1 - data.discountRate / 100)) / data.quantity,
+      date: md,
     };
     dispatch(addProduct(product));
     saveMethods.reset();

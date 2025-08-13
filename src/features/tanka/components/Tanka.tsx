@@ -1,4 +1,4 @@
-import { Container, Grid } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 import { MainList } from './MainList';
 import { SideCategory } from './SideCategory';
 import { SideProduct } from './SideProduct';
@@ -16,6 +16,9 @@ export const Tanka = () => {
           <hr />
           <SideSort />
           <hr />
+          <Typography variant="caption" color="error">
+            単価は(金額 - 割引) × 割引率 ÷ 数量で計算されます
+          </Typography>
         </Grid>
         {/* メインコンテンツ */}
         <Grid size={{ xs: 12, md: 9 }}>

@@ -23,7 +23,7 @@ const tankaSlice = createSlice({
       state.category = [...state.category, action.payload];
     },
     removeCategory(state, action: { payload: string }) {
-      state.category = state.category.filter((cat) => cat.value !== action.payload);
+      state.category = state.category.filter((c) => c.value !== action.payload);
     },
     setSelectCategory(state, action: { payload: string }) {
       state.selectCategory = action.payload;
@@ -31,12 +31,21 @@ const tankaSlice = createSlice({
     addProduct(state, action: { payload: product }) {
       state.product = [...state.product, action.payload];
     },
+    removeProduct(state, action: { payload: string }) {
+      state.product = state.product.filter((p) => p.id !== action.payload);
+    },
     setSelectSort(state, action: { payload: string }) {
       state.selectSort = action.payload;
     },
   },
 });
 
-export const { addCategory, removeCategory, addProduct, setSelectCategory, setSelectSort } =
-  tankaSlice.actions;
+export const {
+  addCategory,
+  removeCategory,
+  addProduct,
+  removeProduct,
+  setSelectCategory,
+  setSelectSort,
+} = tankaSlice.actions;
 export default tankaSlice.reducer;
