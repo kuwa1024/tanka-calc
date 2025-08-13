@@ -11,7 +11,7 @@ export interface tankaState {
 const initialState: tankaState = {
   category: [],
   product: [],
-  selectCategory: 'none',
+  selectCategory: 'all',
   selectSort: 'unitPriceAsc',
 };
 

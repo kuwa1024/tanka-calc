@@ -14,7 +14,8 @@ export const useProductList = () => {
   const selectCategory = useAppSelector((state) => state.tanka.selectCategory);
   const selectSort = useAppSelector((state) => state.tanka.selectSort);
   const product = useAppSelector((state) => state.tanka.product);
-  const list = product.filter((p) => p.category === selectCategory);
+
+  const list = product.filter((p) => p.category === selectCategory || selectCategory === 'all');
 
   if (selectSort === 'unitPriceAsc') {
     list.sort((a, b) => a.unitPrice - b.unitPrice);

@@ -35,11 +35,11 @@ type formSaveValues = z.infer<typeof schema>;
 export const useProduct = () => {
   const dispatch = useAppDispatch();
   const category = [
-    { value: 'none', label: '未設定' },
+    { value: 'all', label: 'すべて' },
     ...useAppSelector((state) => state.tanka.category),
   ];
   const selectCategory = useAppSelector((state) => state.tanka.selectCategory);
-  const categoryName = category.find((cat) => cat.value === selectCategory)?.label || '未設定';
+  const categoryName = category.find((cat) => cat.value === selectCategory)?.label || 'すべて';
 
   const saveMethods = useForm({
     resolver: zodResolver(schema),

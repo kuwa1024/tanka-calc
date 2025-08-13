@@ -6,7 +6,7 @@ export const SideSort = () => {
   const { sort, methods } = useSort();
   return (
     <FormProvider {...methods}>
-      <SelectInput name="sortValue" label="カテゴリー選択" options={sort} />
+      <SelectInput name="sortValue" label="並び順" options={sort} />
     </FormProvider>
   );
 };

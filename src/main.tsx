@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistor, store } from './app/store.ts';
 import { Tanka } from './features/tanka/components/Tanka.tsx';
-import { Sample } from './Sample/Sample.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -14,7 +13,6 @@ createRoot(document.getElementById('root')!).render(
         <BrowserRouter basename="/tanka-calc">
           <Routes>
             <Route path="/" element={<Tanka />} />
-            <Route path="/sample" element={<Sample />} />
           </Routes>
         </BrowserRouter>
       </PersistGate>

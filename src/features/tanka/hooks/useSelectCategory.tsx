@@ -13,7 +13,7 @@ type formValues = z.infer<typeof schema>;
 export const useSelectCategory = () => {
   const dispatch = useAppDispatch();
   const category = [
-    { value: 'none', label: '未設定' },
+    { value: 'all', label: 'すべて' },
     ...useAppSelector((state) => state.tanka.category),
   ];
   const selectCategory = useAppSelector((state) => state.tanka.selectCategory);
