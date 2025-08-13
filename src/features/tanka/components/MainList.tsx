@@ -24,7 +24,7 @@ export const MainList = () => {
               id={row.id.toString()}
             >
               <Grid container spacing={2} width={'100%'}>
-                <Grid size={6}>
+                <Grid size={5}>
                   <Typography variant="caption">商品名</Typography>
                   <Typography variant="body1" noWrap>
                     {row.name}
@@ -36,7 +36,7 @@ export const MainList = () => {
                     {row.price.toLocaleString()}円
                   </Typography>
                 </Grid>
-                <Grid size={3}>
+                <Grid size={4}>
                   <Typography variant="caption">単価</Typography>
                   <Typography variant="body1" noWrap>
                     {row.unitPrice.toFixed(2).toLocaleString()}円
